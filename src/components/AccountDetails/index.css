@@ -1,0 +1,66 @@
+.accounts-bg {
+  background-color: #181818;
+}
+.accounts-container {
+  background-color: #ffffff;
+  font-family: roboto;
+}
+.accounts-head {
+  font-size: 36px;
+  font-weight: 700;
+  color: #131313;
+  padding-top: 100px;
+  margin-left: 165px;
+}
+.hr {
+  background-color: #cbd5e1;
+  width: 1110px;
+  height: 2px;
+  border: none;
+  border-radius: 10px;
+  margin-left: 165px;
+}
+.span {
+  margin-left: 165px;
+  margin-right: 20px;
+  color: #94a3b8;
+  font-size: 24px;
+  font-weight: 600;
+}
+.span1 {
+  margin-right: 30px;
+}
+.accounts-para {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1e293b;
+}
+.para1 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #64748b;
+  margin-left: 327px;
+}
+.span2 {
+  color: #1e293b;
+  border: 1px solid #1e293b;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 25px;
+  border-radius: 2px;
+  padding: 2px;
+  height: 27px;
+}
+.logout-btn {
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  width: 89px;
+  height: 40px;
+  border: none;
+  margin-left: 720px;
+  margin-top: 50px;
+  margin-bottom: 120px;
+  cursor: pointer;
+}

@@ -48,14 +48,15 @@ class LoginPage extends Component {
     const {username, password, errMsg} = this.state
     const jwtToken = Cookies.get('jwt_token')
 
-    if (jwtToken === undefined) {
+    if (jwtToken !== undefined) {
       return <Redirect to="/" />
     }
+
     return (
       <div className="login-bg">
         <img
           src="https://res.cloudinary.com/dzo0il2vd/image/upload/v1709644541/logo_mkysbj.png"
-          alt="logo"
+          alt="login website logo"
           className="login-logo"
         />
         <form className="login-container" onSubmit={this.loginReq}>
