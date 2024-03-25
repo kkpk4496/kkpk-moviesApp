@@ -1,0 +1,11 @@
+.search-container {
+  background-color: #181818;
+  width: 100vw;
+  min-height: 100vh;
+}
+.video-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

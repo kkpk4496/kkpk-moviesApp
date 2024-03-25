@@ -16,7 +16,7 @@ class LoginPage extends Component {
 
   onSubmitData = jwtToken => {
     const {history} = this.props
-    Cookies.set(('jwt_token': jwtToken), {expires: 30})
+    Cookies.set('jwt_token', jwtToken, {expires: 30})
     this.setState({username: '', password: ''})
     history.replace('/')
   }
