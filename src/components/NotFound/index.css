@@ -1,0 +1,54 @@
+.notfound-bg {
+  background-image: url('https://res.cloudinary.com/dzo0il2vd/image/upload/v1710513012/not-found_hrkdgt.png');
+  background-size: cover;
+  width: 1520px;
+  height: 1024px;
+  margin-top: -24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.notfound-head {
+  color: #ffffff;
+  font-size: 96px;
+  font-weight: 700;
+}
+.notfound-para {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+}
+.notfound-btn {
+  width: 127px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: none;
+  color: #171f46;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .notfound-bg {
+    width: 360px;
+    height: 640px;
+    background-image: url('https://res.cloudinary.com/dzo0il2vd/image/upload/v1710514760/not-found-small_cmmgmy.png');
+    background-size: cover;
+  }
+  .notfound-head {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .notfound-para {
+    width: 296px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .notfound-btn {
+    height: 40px;
+    border-radius: 3px;
+  }
+}

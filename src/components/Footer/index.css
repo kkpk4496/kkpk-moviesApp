@@ -1,0 +1,25 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 221px;
+  background-color: #181818;
+}
+
+.footer-icons {
+  width: 200px;
+  height: 21px;
+  display: flex;
+  justify-content: space-between;
+}
+.icon-color {
+  color: #ffffff;
+  height: 25px;
+  width: 25px;
+}
+.footer-head {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
