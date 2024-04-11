@@ -2,16 +2,26 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import Footer from '../Footer'
+import LoadingView from '../LoadingView'
+import FailureView from '../FailureView'
 import './index.css'
 
+const apiStatusValue = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  loading: 'LOADING',
+}
+
 class MovieDetails extends Component {
-  state = {movieData: []}
+  state = {movieData: [], apiStatus: apiStatusValue.initial}
 
   componentDidMount() {
     this.getResults()
   }
 
   getResults = async () => {
+    this.setState({apiStatus: apiStatusValue.loading})
     const jwtToken = Cookies.get('jwt_token')
     const {match} = this.props
     const {params} = match
@@ -43,14 +53,18 @@ class MovieDetails extends Component {
           name: each.name,
         })),
       }
-      this.setState({movieData: videoDetails})
+      this.setState({
+        movieData: videoDetails,
+        apiStatus: apiStatusValue.success,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusValue.failure})
     }
   }
 
-  render() {
+  renderSuccess = () => {
     const {movieData} = this.state
     const {genres} = movieData
-    console.log(genres)
     const image = movieData.backdropPath
     const runHours = Math.floor(movieData.runtime / 60)
     const runMin = movieData.runtime % 60
@@ -92,6 +106,41 @@ class MovieDetails extends Component {
         <Footer />
       </div>
     )
+  }
+
+  apiStatus = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusValue.loading:
+        return (
+          <>
+            <div className="details-cont">
+              <Header />
+              <LoadingView />
+              <Footer />
+            </div>
+          </>
+        )
+      case apiStatusValue.success:
+        return this.renderSuccess()
+      case apiStatusValue.failure:
+        return (
+          <>
+            <div className="details-cont">
+              <Header />
+              <FailureView retry={this.getResults} errorImg="big" />
+              <Footer />
+            </div>
+          </>
+        )
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return <>{this.apiStatus()}</>
   }
 }
 

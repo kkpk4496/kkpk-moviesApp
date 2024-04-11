@@ -1,6 +1,6 @@
 .slider {
   width: 1120px;
-  height: 200px;
+  min-height: 200px;
   text-align: center;
   color: #ffffff;
 }

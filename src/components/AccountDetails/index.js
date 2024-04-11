@@ -17,15 +17,17 @@ const AccountDetails = props => {
       <div className="accounts-container">
         <h1 className="accounts-head">Account</h1>
         <hr className="hr" />
-        <p className="accounts-para">
-          <span className="span">Member ship</span>rahul@gmail.com
-        </p>
+        <div className="para-container">
+          <p className="span">Member ship</p>
+          <p className="accounts-para">rahul@gmail.com</p>
+        </div>
         <p className="para1">Password : ************</p>
         <hr className="hr" />
-        <p className="accounts-para">
-          <span className="span span1">Plan Details</span>Premium
-          <span className="span2">Ultra HD</span>
-        </p>
+        <div className="para-container">
+          <p className="span span1">Plan Details</p>
+          <p className="accounts-para">Premium</p>
+          <p className="span2">Ultra HD</p>
+        </div>
         <hr className="hr" />
         <button type="button" className="logout-btn" onClick={onClickLogout}>
           Logout

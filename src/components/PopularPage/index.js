@@ -50,13 +50,13 @@ class PopularPage extends Component {
   renderSuccess = () => {
     const {popularResults} = this.state
     return (
-      <>
+      <ul className="video-list">
         {popularResults.map(each => (
-          <li>
+          <li key={each.id}>
             <VideoThumbnails key={each.id} videoDetails={each} />
           </li>
         ))}
-      </>
+      </ul>
     )
   }
 
@@ -82,7 +82,7 @@ class PopularPage extends Component {
           getSearchInput={this.getSearchInput}
           getSearchResults={this.getSearchResults}
         />
-        <ul className="video-list">{this.apiStatus()}</ul>
+        {this.apiStatus()}
         <Footer />
       </div>
     )

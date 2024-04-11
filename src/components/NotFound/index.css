@@ -14,11 +14,13 @@
   color: #ffffff;
   font-size: 96px;
   font-weight: 700;
+  line-height: 5px;
 }
 .notfound-para {
   color: #ffffff;
   font-size: 24px;
   font-weight: 500;
+  width: 675px;
 }
 .notfound-btn {
   width: 127px;

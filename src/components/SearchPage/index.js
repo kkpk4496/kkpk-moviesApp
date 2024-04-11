@@ -22,8 +22,9 @@ class SearchPage extends Component {
   }
 
   getSearchResults = async () => {
+    const {givenInput, apiStatus} = this.state
+    console.log(apiStatus)
     this.setState({apiStatus: apiStatusValue.loading})
-    const {givenInput} = this.state
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/movies-app/movies-search?search=${givenInput}`
     const options = {
@@ -35,7 +36,6 @@ class SearchPage extends Component {
     const response = await fetch(url, options)
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData.results)
       const data = fetchedData.results.map(each => ({
         id: each.id,
         title: each.title,
@@ -55,7 +55,7 @@ class SearchPage extends Component {
         {searchResults.length !== 0 ? (
           <>
             {searchResults.map(each => (
-              <li>
+              <li key={each.id}>
                 <VideoThumbnails key={each.id} videoDetails={each} />
               </li>
             ))}
@@ -84,7 +84,6 @@ class SearchPage extends Component {
 
   apiStatus = () => {
     const {apiStatus} = this.state
-    console.log(apiStatus)
 
     switch (apiStatus) {
       case apiStatusValue.loading:

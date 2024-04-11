@@ -34,38 +34,42 @@ class Header extends Component {
     }
     return (
       <nav className="header-container">
-        <div className="logo-container">
+        <ul className="logo-container">
           <Link to="/">
-            <img
-              src="https://res.cloudinary.com/dzo0il2vd/image/upload/v1709644541/logo_mkysbj.png"
-              alt="website logo"
-              className="header-logo"
-            />
+            <li>
+              <img
+                src="https://res.cloudinary.com/dzo0il2vd/image/upload/v1709644541/logo_mkysbj.png"
+                alt="website logo"
+                className="header-logo"
+              />
+            </li>
           </Link>
+
           <Link
             to="/"
             className={pageAddress === '/' ? 'highlight links' : 'links'}
           >
-            Home
+            <li>Home</li>
           </Link>
+
           <Link
             to="/popular"
             className={pageAddress === '/popular' ? 'highlight links' : 'links'}
           >
-            Popular
+            <li>Popular</li>
           </Link>
-        </div>
+        </ul>
         <div className="logo-container1">
           {pageAddress === '/search' ? (
             <div className="search-select">
               <input
-                type="text"
+                type="search"
                 className="search-input"
                 onChange={this.onChangeInput}
               />
               <button
                 type="button"
-                test-id="searchButton"
+                testid="searchButton"
                 className="search-btn"
                 onClick={this.onClickSearchInput}
               >
@@ -75,7 +79,7 @@ class Header extends Component {
           ) : (
             <button
               type="button"
-              test-id="searchButton"
+              testid="searchButton"
               className="search-btn"
               onClick={this.onClickSearch}
             >

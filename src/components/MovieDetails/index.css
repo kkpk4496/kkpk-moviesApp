@@ -1,5 +1,6 @@
 .details-cont {
   background-color: #181818;
+  min-height: 100vh;
 }
 .details-container {
   height: 605px;

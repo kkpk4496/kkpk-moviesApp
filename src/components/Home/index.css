@@ -3,16 +3,16 @@
 }
 .home-container {
   background-image: url('https://res.cloudinary.com/dzo0il2vd/image/upload/v1709657355/ironman_szmrvc.png');
-  height: 605px;
+  min-height: 605px;
   background-size: 100% 100%;
 }
 .banner {
   color: #ffffff;
   margin-left: 164px;
-  width: 443px;
+  width: 475px;
 }
 .home-h1 {
-  font-size: 64px;
+  font-size: 54px;
   font-weight: 600;
 }
 .home-p {

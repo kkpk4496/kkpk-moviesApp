@@ -5,6 +5,7 @@
   align-items: center;
   height: 103px;
   width: 100vw;
+  background: rgba(19, 19, 19, 0.2);
 }
 .logo-container {
   display: flex;
@@ -12,6 +13,9 @@
   align-items: center;
   width: 350px;
   margin-left: 135px;
+}
+li {
+  list-style-type: none;
 }
 
 .logo-container1 {
