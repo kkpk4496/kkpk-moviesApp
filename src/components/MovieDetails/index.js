@@ -1,7 +1,9 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {format} from 'date-fns'
 import Header from '../Header'
 import Footer from '../Footer'
+import VideoThumbnails from '../VideoThumbnails'
 import LoadingView from '../LoadingView'
 import FailureView from '../FailureView'
 import './index.css'
@@ -37,7 +39,6 @@ class MovieDetails extends Component {
     if (response.ok) {
       const fetchedData = await response.json()
       const data = fetchedData.movie_details
-      console.log(data)
       const videoDetails = {
         id: data.id,
         overview: data.overview,
@@ -48,9 +49,21 @@ class MovieDetails extends Component {
         budget: data.budget,
         runtime: data.runtime,
         releaseDate: data.release_date,
+        ratingCount: data.vote_count,
+        ratingAvg: data.vote_average,
         genres: data.genres.map(each => ({
           id: each.id,
           name: each.name,
+        })),
+        languages: data.spoken_languages.map(each => ({
+          id: each.id,
+          englishName: each.english_name,
+        })),
+        similarMovies: data.similar_movies.map(each => ({
+          id: each.id,
+          title: each.title,
+          posterPath: each.poster_path,
+          backdropPath: each.backdrop_path,
         })),
       }
       this.setState({
@@ -64,11 +77,11 @@ class MovieDetails extends Component {
 
   renderSuccess = () => {
     const {movieData} = this.state
-    const {genres} = movieData
     const image = movieData.backdropPath
     const runHours = Math.floor(movieData.runtime / 60)
     const runMin = movieData.runtime % 60
     const date = new Date(movieData.releaseDate)
+    const releaseDateFormat = format(new Date(date), 'do MMMM yyyy')
     const releaseYear = date.getFullYear()
     return (
       <div className="details-cont">
@@ -94,14 +107,49 @@ class MovieDetails extends Component {
             </button>
           </div>
         </div>
-        <h1>Genres</h1>
-        <ul>
-          {genres.map(each => (
-            <li key={each.id}>{each.name}</li>
-          ))}
-        </ul>
+        <div className="movie-details-container">
+          <div>
+            <h1 className="movie-h1">Genres</h1>
+            <ul>
+              {movieData.genres.map(each => (
+                <p key={each.name} className="movie-p">
+                  {each.name}
+                </p>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h1 className="movie-h1">Audio Available</h1>
+            <ul>
+              {movieData.languages.map(each => (
+                <p key={each.englishName} className="movie-p">
+                  {each.englishName}
+                </p>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h1 className="movie-h1">Rating Count</h1>
+            <p className="movie-p">{movieData.ratingCount}</p>
+            <h1 className="movie-h1">Rating Average</h1>
+            <p className="movie-p">{movieData.ratingAvg}</p>
+          </div>
+          <div>
+            <h1 className="movie-h1">Budget</h1>
+            <p className="movie-p">{movieData.budget}</p>
+            <h1 className="movie-h1">Release Date</h1>
+            <p className="movie-p">{releaseDateFormat}</p>
+          </div>
+        </div>
         <div className="slider-container">
-          <h1 className="side-head">Trending Now</h1>
+          <h1 className="side-head">More like this</h1>
+          <ul className="video-list">
+            {movieData.similarMovies.map(each => (
+              <li key={each.id}>
+                <VideoThumbnails key={each.id} videoDetails={each} />
+              </li>
+            ))}
+          </ul>
         </div>
         <Footer />
       </div>

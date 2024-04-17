@@ -35,15 +35,15 @@ class Header extends Component {
     return (
       <nav className="header-container">
         <ul className="logo-container">
-          <Link to="/">
-            <li>
+          <li>
+            <Link to="/">
               <img
                 src="https://res.cloudinary.com/dzo0il2vd/image/upload/v1709644541/logo_mkysbj.png"
                 alt="website logo"
                 className="header-logo"
               />
-            </li>
-          </Link>
+            </Link>
+          </li>
 
           <Link
             to="/"

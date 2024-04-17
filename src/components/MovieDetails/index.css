@@ -54,3 +54,23 @@
   border: 1px solid #ffffff;
   border-radius: 2px;
 }
+.movie-details-container {
+  margin-left: 165px;
+  display: flex;
+  justify-content: space-between;
+  width: 75vw;
+}
+.movie-h1 {
+  color: #94a3b8;
+  font-size: 18px;
+  font-weight: 600;
+}
+.movie-p {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}

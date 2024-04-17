@@ -5,7 +5,6 @@ import Footer from '../Footer'
 import VideoThumbnails from '../VideoThumbnails'
 import LoadingView from '../LoadingView'
 import FailureView from '../FailureView'
-import './index.css'
 
 const apiStatusValue = {
   initial: 'INITIAL',
@@ -34,7 +33,6 @@ class PopularPage extends Component {
     const response = await fetch(url, options)
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData.results)
       const data = fetchedData.results.map(each => ({
         id: each.id,
         title: each.title,

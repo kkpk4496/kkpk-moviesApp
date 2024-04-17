@@ -22,8 +22,7 @@ class SearchPage extends Component {
   }
 
   getSearchResults = async () => {
-    const {givenInput, apiStatus} = this.state
-    console.log(apiStatus)
+    const {givenInput} = this.state
     this.setState({apiStatus: apiStatusValue.loading})
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/movies-app/movies-search?search=${givenInput}`
@@ -73,11 +72,11 @@ class SearchPage extends Component {
       <div className="load">
         <img
           src="https://res.cloudinary.com/dzo0il2vd/image/upload/v1710940248/search_error_nwatnq.png"
-          alt="wrong"
+          alt="no movies"
         />
-        <h1 className="failure-head">
+        <p className="failure-head">
           Your search for {givenInput} did not find any matches.
-        </h1>
+        </p>
       </div>
     )
   }
