@@ -5,7 +5,7 @@
   align-items: center;
   color: #ffffff;
   width: 1200px;
-  min-height: 50vh;
+  min-height: 40vh;
 }
 
 @media screen and (max-width: 767px) {

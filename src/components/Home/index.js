@@ -21,18 +21,28 @@ const apiStatusOriginal = {
   loading: 'LOADING',
 }
 
+const apiStatusTopRated = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  loading: 'LOADING',
+}
+
 class Home extends Component {
   state = {
     trendingVideos: [],
     originalVideos: [],
+    topRatedVideos: [],
     apiStatusTrendings: apiStatusTrending.initial,
     apiStatusOriginals: apiStatusOriginal.initial,
+    apiStatusToprated: apiStatusTopRated.initial,
     randomBanner: [],
   }
 
   componentDidMount() {
     this.getTrendingResults()
     this.getOriginalsResults()
+    this.getTopRatedResults()
   }
 
   getTrendingResults = async () => {
@@ -95,6 +105,35 @@ class Home extends Component {
     }
   }
 
+  getTopRatedResults = async () => {
+    this.setState({apiStatusToprated: apiStatusTopRated.loading})
+    const jwtToken = Cookies.get('jwt_token')
+    const url = 'https://apis.ccbp.in/movies-app/top-rated-movies'
+    const options = {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      method: 'GET',
+    }
+    const response = await fetch(url, options)
+    if (response.ok) {
+      const fetchedData = await response.json()
+      const data = fetchedData.results.map(each => ({
+        id: each.id,
+        title: each.title,
+        backdropPath: each.backdrop_path,
+        posterPath: each.poster_path,
+        overview: each.overview,
+      }))
+      this.setState({
+        topRatedVideos: data,
+        apiStatusToprated: apiStatusTopRated.success,
+      })
+    } else {
+      this.setState({apiStatusToprated: apiStatusTopRated.failure})
+    }
+  }
+
   renderOriginalSuccess = () => {
     const {originalVideos} = this.state
 
@@ -121,6 +160,12 @@ class Home extends Component {
     return <VideoSlider videoList={trendingVideos} />
   }
 
+  renderTopratedSuccess = () => {
+    const {topRatedVideos} = this.state
+
+    return <VideoSlider videoList={topRatedVideos} />
+  }
+
   renderBannerSuccess = () => {
     const {randomBanner} = this.state
 
@@ -143,6 +188,20 @@ class Home extends Component {
       case apiStatusTrending.success:
         return this.renderTrendingSuccess()
       case apiStatusTrending.failure:
+        return <FailureView retry={this.getTrendingResults} errorImg="small" />
+      default:
+        return null
+    }
+  }
+
+  renderTopRated = () => {
+    const {apiStatusToprated} = this.state
+    switch (apiStatusToprated) {
+      case apiStatusTopRated.loading:
+        return <LoadingView />
+      case apiStatusTopRated.success:
+        return this.renderTopratedSuccess()
+      case apiStatusTopRated.failure:
         return <FailureView retry={this.getTrendingResults} errorImg="small" />
       default:
         return null
@@ -178,6 +237,8 @@ class Home extends Component {
         <div className="slider-container">
           <h1 className="side-head">Trending Now</h1>
           {this.renderTrending()}
+          <h1 className="side-head">Top Rated</h1>
+          {this.renderTopRated()}
           <h1 className="side-head">Originals</h1>
           {this.renderOriginal()}
         </div>
