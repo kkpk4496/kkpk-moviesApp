@@ -23,3 +23,21 @@
   font-weight: 600;
   color: #ffffff;
 }
+
+@media screen and (max-width: 767px) {
+  .footer-container {
+    width: 360px;
+    height: 70px;
+    margin-top: 50px;
+  }
+  .footer-icons {
+    width: 100px;
+  }
+  .icon-color {
+    width: 16px;
+    height: 16px;
+  }
+  .footer-head {
+    font-size: 12px;
+  }
+}

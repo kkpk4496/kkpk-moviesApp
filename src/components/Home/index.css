@@ -2,7 +2,6 @@
   background-color: #181818;
 }
 .home-container {
-  background-image: url('https://res.cloudinary.com/dzo0il2vd/image/upload/v1709657355/ironman_szmrvc.png');
   min-height: 605px;
   background-size: 100% 100%;
 }
@@ -36,4 +35,33 @@
   font-size: 24px;
   font-weight: 600;
   color: #ffffff;
+}
+@media screen and (max-width: 767px) {
+  .slider-container {
+    margin-left: 30px;
+  }
+  .home-h1 {
+    font-size: 36px;
+    font-weight: 600;
+  }
+  .home-p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .home-btn {
+    width: 76px;
+    height: 32px;
+  }
+  .home-container {
+    width: 360px;
+    height: 447px;
+  }
+  .banner {
+    margin-left: 32px;
+    width: 296px;
+  }
+  .side-head {
+    font-size: 16px;
+    font-weight: 600;
+  }
 }

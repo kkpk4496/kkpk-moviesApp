@@ -121,6 +121,20 @@ class Home extends Component {
     return <VideoSlider videoList={trendingVideos} />
   }
 
+  renderBannerSuccess = () => {
+    const {randomBanner} = this.state
+
+    return (
+      <ul>
+        <h1 className="home-h1">{randomBanner.title}</h1>
+        <h1 className="home-p">{randomBanner.overview}</h1>
+        <button type="button" className="home-btn">
+          Play
+        </button>
+      </ul>
+    )
+  }
+
   renderTrending = () => {
     const {apiStatusTrendings} = this.state
     switch (apiStatusTrendings) {
@@ -130,6 +144,20 @@ class Home extends Component {
         return this.renderTrendingSuccess()
       case apiStatusTrending.failure:
         return <FailureView retry={this.getTrendingResults} errorImg="small" />
+      default:
+        return null
+    }
+  }
+
+  renderBanner = () => {
+    const {apiStatusOriginals} = this.state
+    switch (apiStatusOriginals) {
+      case apiStatusOriginal.loading:
+        return <LoadingView />
+      case apiStatusOriginal.success:
+        return this.renderBannerSuccess()
+      case apiStatusOriginal.failure:
+        return <FailureView retry={this.getOriginalsResults} errorImg="small" />
       default:
         return null
     }
@@ -145,13 +173,7 @@ class Home extends Component {
           alt={randomBanner.title}
         >
           <Header />
-          <div className="banner">
-            <h1 className="home-h1">{randomBanner.title}</h1>
-            <h1 className="home-p">{randomBanner.overview}</h1>
-            <button type="button" className="home-btn">
-              Play
-            </button>
-          </div>
+          <div className="banner">{this.renderBanner()}</div>
         </div>
         <div className="slider-container">
           <h1 className="side-head">Trending Now</h1>

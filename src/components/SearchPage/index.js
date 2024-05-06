@@ -73,6 +73,7 @@ class SearchPage extends Component {
         <img
           src="https://res.cloudinary.com/dzo0il2vd/image/upload/v1710940248/search_error_nwatnq.png"
           alt="no movies"
+          className="search-img"
         />
         <p className="failure-head">
           Your search for {givenInput} did not find any matches.

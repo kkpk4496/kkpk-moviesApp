@@ -4,5 +4,12 @@
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  width: 100vw;
+  width: 1200px;
+  min-height: 50vh;
+}
+
+@media screen and (max-width: 767px) {
+  .load {
+    width: 360px;
+  }
 }

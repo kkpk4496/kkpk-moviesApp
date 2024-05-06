@@ -11,15 +11,29 @@ const VideoSlider = props => {
     slidesToShow: 4,
     slidesToScroll: 1,
   }
+  const settingsSmall = {
+    dots: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  }
 
   return (
-    <div className="slider">
-      <Slider {...settings}>
-        {videoList.map(each => (
-          <VideoThumbnails key={each.id} videoDetails={each} />
-        ))}
-      </Slider>
-    </div>
+    <>
+      <div className="slider">
+        <Slider {...settings}>
+          {videoList.map(each => (
+            <VideoThumbnails key={each.id} videoDetails={each} />
+          ))}
+        </Slider>
+      </div>
+      <div className="slider-small">
+        <Slider {...settingsSmall}>
+          {videoList.map(each => (
+            <VideoThumbnails key={each.id} videoDetails={each} />
+          ))}
+        </Slider>
+      </div>
+    </>
   )
 }
 

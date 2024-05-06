@@ -4,13 +4,13 @@
 .accounts-container {
   background-color: #ffffff;
   font-family: roboto;
+  padding-left: 165px;
 }
 .accounts-head {
   font-size: 36px;
   font-weight: 700;
   color: #131313;
   padding-top: 100px;
-  margin-left: 165px;
 }
 .hr {
   background-color: #cbd5e1;
@@ -18,10 +18,9 @@
   height: 2px;
   border: none;
   border-radius: 10px;
-  margin-left: 165px;
+  margin-left: 0px;
 }
 .span {
-  margin-left: 165px;
   margin-right: 20px;
   color: #94a3b8;
   font-size: 24px;
@@ -39,7 +38,7 @@
   font-size: 24px;
   font-weight: 400;
   color: #64748b;
-  margin-left: 327px;
+  margin-left: 162px;
 }
 .span2 {
   color: #1e293b;
@@ -59,7 +58,7 @@
   width: 89px;
   height: 40px;
   border: none;
-  margin-left: 720px;
+  margin-left: 555px;
   margin-top: 50px;
   margin-bottom: 120px;
   cursor: pointer;
@@ -67,4 +66,46 @@
 .para-container {
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .hr {
+    width: 296px;
+  }
+  .accounts-container {
+    padding-left: 32px;
+    max-width: 360px;
+    margin-bottom: 50px;
+  }
+  .accounts-head {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 25px;
+    margin-top: -10px;
+  }
+  .span {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .accounts-para {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -10px;
+  }
+  .para1 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 115px;
+    margin-top: -10px;
+  }
+  .span2 {
+    border: 1px solid #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+    height: 22px;
+  }
+  .logout-btn {
+    margin-left: 91px;
+    font-weight: 600;
+  }
 }

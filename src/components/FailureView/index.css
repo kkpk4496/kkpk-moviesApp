@@ -3,6 +3,14 @@
   font-weight: 500;
   margin: 32px;
 }
+
+@media screen and (max-width: 767px) {
+  .failure-head {
+    font-size: 16px;
+    font-weight: 500;
+    width: 296px;
+  }
+}
 .retry-btn {
   width: 110px;
   height: 48px;

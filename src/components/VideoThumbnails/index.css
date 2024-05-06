@@ -4,3 +4,9 @@
   border-radius: 8px;
   margin: 10px;
 }
+@media screen and (max-width: 767px) {
+  .thumbnails {
+    width: 90px;
+    height: 100px;
+  }
+}

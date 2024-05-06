@@ -11,3 +11,17 @@
   min-height: 85vh;
   margin-left: 30px;
 }
+.search-img {
+  width: 450px;
+}
+@media screen and (max-width: 767px) {
+  .search-img {
+    width: 209px;
+  }
+  .search-container {
+    width: 360px;
+  }
+  .video-list {
+    margin-left: 10px;
+  }
+}
